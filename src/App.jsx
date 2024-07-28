@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import Card from "./Card";
 import "./App.css";
-import "./Card.css";
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -17,31 +17,10 @@ function App() {
         <>
             <div className="container">
                 {products.map((product) => (
-                    <Card product={product} />
+                    <Card key={product.id} product={product} />
                 ))}
             </div>
         </>
-    );
-}
-
-function Card({ product }) {
-    return (
-        <div className="card-item">
-            <div className="img-container">
-                <img src={product.image} alt="" />
-            </div>
-
-            <p className="title-tag">{product.title}</p>
-
-            <div>
-                <p className="shipment-tag">Free shipping</p>
-                <p className="price-tag">${product.price}</p>
-                <div className="card-btns">
-                    <button className="add-btn">Add Cart</button>
-                    <button className="buy-btn">Buy</button>
-                </div>
-            </div>
-        </div>
     );
 }
 
